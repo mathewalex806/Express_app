@@ -56,7 +56,16 @@ app.post('/groceries', (req, res) =>
 
 });
 
+// Route parameters ---> Used to take input from the url.
 
+app.get('/groceries/:item',(request, response)=>
+{
+    console.log(request.params.item);
+    
+    const item = request.params.item;
+    const groceryItem = goList.find((g)=> g.item == item);
+    response.send(groceryItem,200);
+})
 
 
 
